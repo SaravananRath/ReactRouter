@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import Writers from "./Writers";
+
 export default class extends Component {
   state = {
     writers: []
