@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import Writers from "./Writers";
-
+import NotFound from './Errors/404'
 export default class extends Component {
   state = {
     writers: []
@@ -33,10 +33,13 @@ export default class extends Component {
             </li>
           </ul>
           <hr />
+          <Switch>
           <Route exact path="/" render={() => <div>Home</div>} />
           <Route path="/writers" render={ props => <Writers  {...props} writers={writers}/>} />
           {/* <Route path="/writers" component={Writers}/> */}
           {/* <Route path="/writers" render={() => <div>Writers</div>} /> */}
+          <Route component={NotFound}/>
+          </Switch>
         </Fragment>
       </BrowserRouter>
     );
